@@ -1,10 +1,11 @@
-import * as moment from "moment";
+import moment from "moment";
 import { CostStrategy, CostParameters } from "./cost-strategy.interface";
+import { Currency } from "./constants";
 
 function getDaysBetweenDates(date1: Date, date2: Date): number {
-  return moment(date1)
+  return moment(date2)
     .startOf("day")
-    .diff(moment(date2).startOf("day"), "days");
+    .diff(moment(date1).startOf("day"), "days");
 }
 
 export class RentCostStrategy implements CostStrategy {
@@ -22,9 +23,9 @@ export class RentCostStrategy implements CostStrategy {
     deliveryDate,
     returnDate
   }: CostParameters) {
-    return `${price} ${Currency} x ${quantity} x ${getDaysBetweenDates(
+    return `${price} ${Currency} x ${quantity} items x ${getDaysBetweenDates(
       deliveryDate,
       returnDate
-    )}`;
+    )} days`;
   }
 }

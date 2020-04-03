@@ -10,18 +10,16 @@ interface Product {
 
 export class CartProduct {
   private readonly costStrategy: CostStrategy;
-  private product: Product;
 
   constructor(
-    product: Product,
-    private quantity: number,
+    public product: Product,
+    public quantity: number,
     private deliveryDate?: Date,
     private returnDate?: Date
   ) {
     this.costStrategy = product.isForSale
       ? new SaleCostStrategy()
       : new RentCostStrategy();
-    this.product = product;
   }
 
   getProductCost() {
