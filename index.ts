@@ -7,6 +7,10 @@ import { Currency } from "./cost-strategy/constants";
 const appDiv: HTMLElement = document.getElementById("app");
 appDiv.innerHTML = `<h1>TypeScript Strategy Example</h1>`;
 
+const date = new Date();
+const date2 = new Date();
+date2.setDate(date2.getDate() + 2);
+
 const data = [
   {
     product: { isForSale: true, price: 15, name: "Product" },
@@ -15,8 +19,8 @@ const data = [
   {
     product: { isForSale: false, price: 6.5, name: "Another product" },
     quantity: 3,
-    deliveryDate: new Date(),
-    returnDate: new Date("2020-04-05")
+    deliveryDate: date,
+    returnDate: date2
   }
 ];
 
