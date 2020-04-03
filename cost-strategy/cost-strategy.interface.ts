@@ -6,6 +6,16 @@ export interface CostParameters {
 }
 
 export interface CostStrategy {
-  getProductCost({ price, quantity, deliveryDate, returnDate }: CostParameters);
-  getCostCalculationsText({ price, quantity, deliveryDate, returnDate }: CostParameters);
+  getProductCost({
+    price,
+    quantity,
+    deliveryDate,
+    returnDate
+  }: CostParameters): number;
+  getCostCalculationsText({
+    price,
+    quantity,
+    deliveryDate,
+    returnDate
+  }: CostParameters): string;
 }
