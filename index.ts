@@ -30,15 +30,17 @@ const products: CartProduct[] = data.map(
       item.product,
       item.quantity,
       item.deliveryDate,
-      item.returnDate 
+      item.returnDate
     )
 );
 
 const productsHTML = products.reduce(
   (html, cartProduct) =>
-    html +`<li>${
+    html +
+    `<li>${
       cartProduct.product.name
-    }: ${cartProduct.getCostCalculationsText()} = ${cartProduct.getProductCost()} ${Currency}</li>`, ''
+    }: ${cartProduct.getCostCalculationsText()} = ${cartProduct.getProductCost()} ${Currency}</li>`,
+  ""
 );
 
 appDiv.innerHTML += `
